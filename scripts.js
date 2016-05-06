@@ -26,7 +26,11 @@ if (this.MorbidData === undefined) this.MorbidData = {};
 
       statesUl.addEventListener('click', clicked);
 
+
+
       function clicked(evt) {
+
+        if (evt.target !== statesUl) {
 
         var stateNameSpan = document.querySelector('#state-name');
         var ages0_20Span = document.querySelector('#ages-0-20');
@@ -51,7 +55,7 @@ if (this.MorbidData === undefined) this.MorbidData = {};
         ages35AndUpSpan.textContent = ages35_and_up_deaths;
         maleDeathsSpan.textContent = darwin_award_nominees;
         femaleDeathsSpan.textContent = female_deaths;
-
+        }
       }
     })
     //Call your code here
