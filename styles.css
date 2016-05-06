@@ -51,11 +51,30 @@ body {
   font-family: sans-serif;
 }
 
+/****************************************************************
+State button formatting
+****************************************************************/
+
+.state-buttons li {
+	background-color: rgba(255, 0, 0, 1);
+	color: #FFF;
+	display: inline-block;
+	font-size: 1.25em;
+	margin: .75em;
+	padding: .75em;
+	width: auto;
+}
+
+/****************************************************************
+Statistics formatting
+****************************************************************/
+
 .death-stats strong {
   font-weight: bold;
   font-size: 1.2em;
 }
 
 .death-stats li {
-  padding: .5%;
+	padding-bottom: .5em;
+	margin-left: 1em;
 }
