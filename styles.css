@@ -78,3 +78,7 @@ Statistics formatting
 	padding-bottom: .5em;
 	margin-left: 1em;
 }
+
+.death-stats span {
+	font-size: 1.2em;
+}
