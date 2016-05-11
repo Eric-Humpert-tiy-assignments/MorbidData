@@ -16,7 +16,15 @@
       <li><strong>Male:</strong> <span id='male-deaths'></span></li>
       <li><strong>Female:</strong> <span id='female-deaths'></span></li>
     </ul>
+
+    <script type='text/html' id='state-button-template'>
+      <li>
+        <%= stateName %>
+      </li>
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/g/lodash@4.12.0/lodash.min.js"></script>
     <script src='scripts.js'></script>
     <script>MorbidData.start()</script>
   </body>
