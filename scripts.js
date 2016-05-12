@@ -17,6 +17,22 @@ if (this.MorbidData === undefined) this.MorbidData = {};
     statesUl.innerHTML = stateButtonList;
   }
 
+  function clicked(evt) {
+
+    if (evt.target !== statesUl) {
+
+      var statsTemplate = document.querySelector('#stats-template');
+      var index = evt.target.attributes['data-state-id'].value;
+      var state = apiData.data[index];
+
+      var statsListConstructor = _.template(statsTemplate.innerHTML);
+
+      var statsList = statsListConstructor({'stateName': state[8], 'ages0_20_deaths': state[10], 'ages21_34_deaths': state[11], 'ages35_and_up_deaths': state[12], 'darwin_award_nominees': state[13], 'female_deaths': state[14]});
+
+      statsHolder.innerHTML = statsList;
+    }
+  }
+
   function start() {
 
     statesUl = document.querySelector('.state-buttons');
@@ -28,30 +44,6 @@ if (this.MorbidData === undefined) this.MorbidData = {};
 
       statesUl.addEventListener('click', clicked);
 
-
-
-      function clicked(evt) {
-
-        if (evt.target !== statesUl) {
-
-          var statsTemplate = document.querySelector('#stats-template');
-          var index = evt.target.attributes['data-state-id'].value;
-          var state = apiData.data[index];
-
-          var stateName = state[8];
-          var ages0_20_deaths = state[10];
-          var ages21_34_deaths = state[11];
-          var ages35_and_up_deaths = state[12];
-          var darwin_award_nominees = state[13];
-          var female_deaths = state[14];
-
-          var statsListConstructor = _.template(statsTemplate.innerHTML);
-
-          var statsList = statsListConstructor({'stateName': state[8], 'ages0_20_deaths': state[10], 'ages21_34_deaths': state[11], 'ages35_and_up_deaths': state[12], 'darwin_award_nominees': state[13], 'female_deaths': state[14]});
-
-          statsHolder.innerHTML = statsList;
-        }
-      }
     })
     //Call your code here
     console.log('starting!', context);
