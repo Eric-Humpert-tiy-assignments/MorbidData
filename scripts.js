@@ -4,15 +4,17 @@ if (this.MorbidData === undefined) this.MorbidData = {};
 (function(context) {
   var statesUl;
   var apiData;
+  var statsHolder = document.querySelector('#stats-holder');
 
   function stateButtonBuilder(obj) {
+    var stateButtonList = '';
     console.log(obj);
     obj.data.forEach(function (item, index) {
-      var stateButton = document.createElement('li');
-      stateButton.setAttribute('data-state-id', index);
-      stateButton.textContent = item[8];
-      statesUl.appendChild(stateButton);
+      var stateButtonConstructor = _.template('<li data-state-id = "<%= index %>"> <%= stateName %> </li>');
+      var stateButton = stateButtonConstructor({'index': index,'stateName': item[8]});
+      stateButtonList += stateButton;
     })
+    statesUl.innerHTML = stateButtonList;
   }
 
   function start() {
@@ -32,29 +34,22 @@ if (this.MorbidData === undefined) this.MorbidData = {};
 
         if (evt.target !== statesUl) {
 
-        var stateNameSpan = document.querySelector('#state-name');
-        var ages0_20Span = document.querySelector('#ages-0-20');
-        var ages21_34Span = document.querySelector('#ages-21-34');
-        var ages35AndUpSpan = document.querySelector('#ages-35-and-up');
-        var maleDeathsSpan = document.querySelector('#male-deaths');
-        var femaleDeathsSpan = document.querySelector('#female-deaths');
+          var statsTemplate = document.querySelector('#stats-template');
+          var index = evt.target.attributes['data-state-id'].value;
+          var state = apiData.data[index];
 
-        var index = evt.target.attributes['data-state-id'].value;
-        var state = apiData.data[index];
+          var stateName = state[8];
+          var ages0_20_deaths = state[10];
+          var ages21_34_deaths = state[11];
+          var ages35_and_up_deaths = state[12];
+          var darwin_award_nominees = state[13];
+          var female_deaths = state[14];
 
-        var stateName = state[8];
-        var ages0_20_deaths = state[10];
-        var ages21_34_deaths = state[11];
-        var ages35_and_up_deaths = state[12];
-        var darwin_award_nominees = state[13];
-        var female_deaths = state[14];
+          var statsListConstructor = _.template(statsTemplate.innerHTML);
 
-        stateNameSpan.textContent = stateName;
-        ages0_20Span.textContent = ages0_20_deaths;
-        ages21_34Span.textContent = ages21_34_deaths;
-        ages35AndUpSpan.textContent = ages35_and_up_deaths;
-        maleDeathsSpan.textContent = darwin_award_nominees;
-        femaleDeathsSpan.textContent = female_deaths;
+          var statsList = statsListConstructor({'stateName': state[8], 'ages0_20_deaths': state[10], 'ages21_34_deaths': state[11], 'ages35_and_up_deaths': state[12], 'darwin_award_nominees': state[13], 'female_deaths': state[14]});
+
+          statsHolder.innerHTML = statsList;
         }
       }
     })

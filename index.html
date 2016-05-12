@@ -7,15 +7,18 @@
   <body>
     <ul class='state-buttons'>
     </ul>
+    <div id='stats-holder'></div>
 
-    <ul class='death-stats'>
-      <li><strong>State:</strong> <span id='state-name'></span></li>
-      <li><strong>Ages 0-20:</strong> <span id='ages-0-20'></span></li>
-      <li><strong>Ages 21-34:</strong> <span id='ages-21-34'></span></li>
-      <li><strong>Ages 35+:</strong> <span id='ages-35-and-up'></span></li>
-      <li><strong>Male:</strong> <span id='male-deaths'></span></li>
-      <li><strong>Female:</strong> <span id='female-deaths'></span></li>
-    </ul>
+    <script type='text/html' id='stats-template'>
+      <ul class='death-stats'>
+        <li><strong>State:</strong> <span id='state-name'><%= stateName %></span></li>
+        <li><strong>Ages 0-20:</strong> <span id='ages-0-20'><%= ages0_20_deaths %></span></li>
+        <li><strong>Ages 21-34:</strong> <span id='ages-21-34'><%= ages21_34_deaths %></span></li>
+        <li><strong>Ages 35+:</strong> <span id='ages-35-and-up'><%= ages35_and_up_deaths %></span></li>
+        <li><strong>Male:</strong> <span id='male-deaths'><%= darwin_award_nominees %></span></li>
+        <li><strong>Female:</strong> <span id='female-deaths'><%= female_deaths %></span></li>
+      </ul>
+    </script>
 
     <script type='text/html' id='state-button-template'>
       <li>
@@ -24,7 +27,7 @@
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/g/lodash@4.12.0/lodash.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.12.0/lodash.min.js"></script>
     <script src='scripts.js'></script>
     <script>MorbidData.start()</script>
   </body>
