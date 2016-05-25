@@ -1,0 +1,25 @@
+{
+  "name": "morbiddata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel scripts.js -o scripts.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Eric-Humpert-tiy-assignments/MorbidData.git"
+  },
+  "author": "Eric Humpert",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Eric-Humpert-tiy-assignments/MorbidData/issues"
+  },
+  "homepage": "https://github.com/Eric-Humpert-tiy-assignments/MorbidData#readme"
+}
