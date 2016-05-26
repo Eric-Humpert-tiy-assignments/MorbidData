@@ -1,5 +1,5 @@
 'use strict';
-if (this.MorbidData === undefined) this.MorbidData = {};
+if (window.MorbidData === undefined) window.MorbidData = {};
 
 (function(context) {
   let statesUl;
@@ -14,9 +14,8 @@ if (this.MorbidData === undefined) this.MorbidData = {};
       let stateButton = stateButtonConstructor({'index': index,'stateName': item[8]});
       stateButtonList += stateButton;
     })
-      console.log(stateButtonList);
+    console.log(stateButtonList);
     statesUl.html(stateButtonList);
-    console.log()
   }
 
   function clicked(evt) {

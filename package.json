@@ -10,7 +10,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel scripts.js -o scripts.js"
+    "babel": "babel scripts.js -o babelfish.js -w"
   },
   "repository": {
     "type": "git",
