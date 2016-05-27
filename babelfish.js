@@ -8,16 +8,23 @@ if (window.MorbidData === undefined) window.MorbidData = {};
   var statsHolder = $('#stats-holder');
 
   function stateButtonBuilder(obj) {
-    var stateButtonList = '';
-    console.log(obj);
-    obj.data.forEach(function (item, index) {
+    var stateButtonList = [];
+
+    var sorted = obj.data.sort(function (a, b) {
+      if (a[8] > b[8]) {
+        return 1;
+      } else {
+        return -1;
+      }
+    });
+    console.log('sorted result:', sorted);
+    sorted.forEach(function (item, index) {
       var stateButtonConstructor = _.template('<li data-state-id = "<%= index %>"> <%= stateName %> </li>');
       var stateButton = stateButtonConstructor({ 'index': index, 'stateName': item[8] });
-      stateButtonList += stateButton;
+      stateButtonList.push(stateButton);
     });
     console.log(stateButtonList);
     statesUl.html(stateButtonList);
-    console.log();
   }
 
   function clicked(evt) {
